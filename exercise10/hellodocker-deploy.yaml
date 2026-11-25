@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellodocker
+  labels:
+    app: hellodocker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hellodocker
+  template:
+    metadata:
+      labels:
+        app: hellodocker
+    spec:
+      containers:
+        - name: hellodocker
+          image: s3di/hellodocker:1.0
+          ports:
+            - containerPort: 80
